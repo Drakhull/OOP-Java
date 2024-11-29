@@ -19,7 +19,4 @@ public class Product {
         this.category = category;
         this.price = new BigDecimal(price);
     }
-
-//     teste para commit
-// testando 2
 }
