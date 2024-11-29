@@ -1,0 +1,9 @@
+[00:08:54 2024-11-29] FETCHING Version 2.38.5
+[00:08:54 2024-11-29] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.38.5/spicetify-2.38.5-linux-amd64.tar.gz
+[00:08:55 2024-11-29] EXTRACTING /home/Iuri/.spicetify/spicetify.tar.gz
+[00:08:55 2024-11-29] SETTING EXECUTABLE PERMISSIONS TO /home/Iuri/.spicetify/spicetify
+[00:08:55 2024-11-29] REMOVING /home/Iuri/.spicetify/spicetify.tar.gz
+[00:08:55 2024-11-29] spicetify path already set in /home/Iuri/.bashrc, continuing...
+[00:08:55 2024-11-29] spicetify path already set in /home/Iuri/.bash_profile, continuing...
+[00:08:55 2024-11-29] spicetify v2.38.5 was installed successfully to /home/Iuri/.spicetify
+[00:08:55 2024-11-29] Run 'spicetify --help' to get started

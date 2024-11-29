@@ -19,4 +19,9 @@ public class Product {
         this.category = category;
         this.price = new BigDecimal(price);
     }
+
+    public void display() {
+        System.out.println("\nID: " + id + "\nName: " + name + "\nPrice: " + "\nQuantity in stock: " + quantity +
+                           "\nDescription: " + description + "\nCategory: " + category);
+    }
 }
