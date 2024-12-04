@@ -5,7 +5,7 @@ public class Order {
 
     private int orderNumber;
     private String date;
-    private <Arraylist>Product<Arraylist> products;
+    // private <Arraylist>Product<Arraylist> products;
     private BigDecimal totalValue;
 
     public Order (String date, Product products, String totalValue) {
