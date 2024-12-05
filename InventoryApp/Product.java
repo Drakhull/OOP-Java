@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 
 public class Product {
-    private static int idCounter;
+    private static int idCounter = 0;
 
     private int id;
     private int quantity;
@@ -10,7 +10,7 @@ public class Product {
     private String category;
     private BigDecimal price;
 
-    public Product(int quantity, String name, String description,
+    public Product(String name, int quantity, String description,
                    String category, String price) {
         this.id = idCounter++;
         this.quantity = quantity;
