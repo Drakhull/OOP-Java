@@ -58,7 +58,7 @@ public class PasswordHashing {
 
 //  Validate Password Starts
 
-    public static boolean validatePassword(String passwordToValidate, String storedPassword)
+    public static boolean isPasswordValid(String passwordToValidate, String storedPassword)
     throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         String[] parts = storedPassword.split(":");
@@ -88,5 +88,6 @@ public class PasswordHashing {
         return bytes;
     }
 
+//  Validate Password Ends
 
 }
