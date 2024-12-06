@@ -1,3 +1,5 @@
+package com.app.security;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import javax.crypto.spec.PBEKeySpec;

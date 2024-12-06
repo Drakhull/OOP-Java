@@ -1,4 +1,8 @@
 // Maven needed for InternetAddress
+package com.app.users;
+
+import com.app.security.PasswordHashing;
+
 
 import java.util.ArrayList;
 // import javax.mail.internet.InternetAddress;
@@ -12,7 +16,8 @@ public class User {
     private String email;
     private String password;
 
-    private User() {
+//     protected or private?
+    protected User() {
 
     }
 

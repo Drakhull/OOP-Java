@@ -1,3 +1,5 @@
+package com.app.sales;
+
 import java.math.BigDecimal;
 
 public class Product {

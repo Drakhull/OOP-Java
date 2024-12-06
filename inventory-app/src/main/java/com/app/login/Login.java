@@ -1,6 +1,8 @@
-import javax.mail.internet.InternetAddress;
+package com.app.login;
 
-public static class Login {
+// import javax.mail.internet.InternetAddress;
+   // static
+public class Login {
     private String email;
     private String password;
 
@@ -9,12 +11,12 @@ public static class Login {
     }
 
 //     verify if its an administrator or a customer
-    private User searchUser() {
-//     uses email to find
-    }
+//     private User searchUser() {
+// //     uses email to find
+//     }
 // after finding the user, compare password getting the found user as a parameter
 
-    public boolean isValidPassword
+    // public boolean isValidPassword
 
 
 }

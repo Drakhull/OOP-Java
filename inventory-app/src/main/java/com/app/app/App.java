@@ -1,4 +1,9 @@
-public class Main {
+package com.app.app;
+
+import com.app.users.Customer;
+
+public class App 
+{
     public static void main(String[] args) throws Exception{
         Customer customer = new Customer("Iuri Viana", "iuri@gmail.com", "senha123", "Quinto dos infernos");
         customer.display();

@@ -1,3 +1,7 @@
+package com.app.users;
+
+import com.app.sales.ShoppingCart;
+
 import java.util.ArrayList;
 
 public class Customer extends User {
