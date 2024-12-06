@@ -5,7 +5,8 @@ import com.app.security.PasswordHashing;
 
 
 import java.util.ArrayList;
-// import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.AddressException;
 
 
 public class User {
@@ -23,9 +24,9 @@ public class User {
 
     protected User (String name, String email, String password)
         throws Exception {
-        // if (!isEmailValid(email)) {
-        //     throw new IllegalArgumentException("Invalid E-mail: " + email);
-        // }
+        if (!isEmailValid(email)) {
+            throw new IllegalArgumentException("Invalid E-mail: " + email);
+        }
         if (password == null || password.length() < 6) {
             throw new IllegalArgumentException("Password must be 6 character lenght.");
         }
@@ -52,14 +53,14 @@ public class User {
        return PasswordHashing.isPasswordValid(passwordToValidate, password);
     }
 
-    // public static boolean isEmailValid(String email) {
-    //     boolean result = true;
-    //     try {
-    //         InternetAddress emailAddr = new InternetAddress(email);
-    //         emailAddr.validate();
-    //     } catch (AddressException ex) {
-    //         result = false;
-    //     }
-    //     return result;
-    // }
+    public static boolean isEmailValid(String email) {
+        boolean result = true;
+        try {
+            InternetAddress emailAddr = new InternetAddress(email);
+            emailAddr.validate();
+        } catch (AddressException ex) {
+            result = false;
+        }
+        return result;
+    }
 }
