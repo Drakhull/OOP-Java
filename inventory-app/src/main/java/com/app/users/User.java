@@ -1,4 +1,3 @@
-// Maven needed for InternetAddress
 package com.app.users;
 
 import com.app.security.PasswordHashing;
