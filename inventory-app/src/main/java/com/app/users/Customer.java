@@ -21,8 +21,8 @@ public class Customer extends User {
     }
 
         public void displayAllPurchases(){
-        // for(ShoppingCart purchase : purchaseHistory)
-        //     purchase.display();
+        for(ShoppingCart purchase : purchaseHistory)
+            purchase.display();
     }
 
     public void display(){
