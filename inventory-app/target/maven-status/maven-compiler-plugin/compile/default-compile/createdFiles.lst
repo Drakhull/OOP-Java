@@ -1,4 +1,5 @@
 com/app/sales/ShoppingCart.class
+LoginUI.class
 com/app/login/Login.class
 com/app/app/App.class
 com/app/users/Customer.class

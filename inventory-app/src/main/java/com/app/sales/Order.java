@@ -16,4 +16,8 @@ public class Order {
         this.products = new ArrayList<Product>();
         this.totalValue = new BigDecimal(totalValue);
     }
+
+    public void addProductToOrder(Product product){
+        products.add(product);
+    }
 }

@@ -8,7 +8,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.AddressException;
 
 
-public class User {
+public abstract class User {
     private static int idCounter = 0;
 
     private int id;
