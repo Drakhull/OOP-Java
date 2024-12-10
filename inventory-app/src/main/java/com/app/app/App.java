@@ -7,13 +7,18 @@ import com.app.users.UsersHashMap;
 public class App
 {
     public static void main(String[] args) throws Exception{
-        Customer customer = new Customer("Iuri Viana", "iuri@gmail.com", "senha123", "Quinto dos infernos");
-        User.addUser(customer);
-        customer.display();
+        Customer customer = new Customer("Iuri Viana", "iuri@gmail.com", "password123", "Anywhere");
+        UsersHashMap.addUser(customer);
+        Customer customerGet = ((Customer)UsersHashMap.getUserByEmail("iuri@gmail.com"));
+        customerGet.display();
+        System.out.println("\n------------------------------------------\n");
+        System.out.println("\n------------------------------------------\n");
+        System.out.println("\n------------------------------------------\n");
+
+        customerGet.display();
         System.out.println("\n------------------------------------------\n");
         customer.displayAllPurchases();
-        System.out.println("\n\nsenha123: " + customer.isPasswordValid("senha123") +
-                           "\ntaerrado: " + customer.isPasswordValid("taerrado"));
-        System.out.println(User.UsersHashMap.getUserByEmail("iuri@gmail.com"));
+        System.out.println("\n\nsenha123: " + customer.isPasswordValid("password123") +
+                           "\nit's Wrong: " + customer.isPasswordValid("it's Wrong"));
     }
 }

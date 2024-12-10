@@ -5,16 +5,16 @@ import java.util.HashMap;
 public class UsersHashMap {
     private static HashMap<String, User> users = new HashMap<>();
 
-    public static void addUser(User user, String email) {
-        users.put(email, user);
+    public static void addUser(User user) {
+        users.put(user.getEmail(), user);
     }
 
     public static User getUserByEmail(String email) {
         return users.get(email);
     }
 
-    public static boolean removeUser(String email) {
-        return users.remove(email) != null;
+    public static boolean removeUser(User user) {
+        return users.remove(user.getEmail()) != null;
     }
 
     public static HashMap<String, User> getAllUsers() {

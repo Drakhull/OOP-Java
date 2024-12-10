@@ -41,12 +41,7 @@ public abstract class User {
        return PasswordHashing.isPasswordValid(passwordToValidate, password);
     }
 
-    public static void addUser(User user) {
-        UsersHashMap.addUser(user, user.email);
-        System.out.println("User" + user.name + "added");
-    }
-
-    public static User getUserByEmail() {
-        return users.get(email);
+    public String getEmail(){
+        return this.email;
     }
 }
