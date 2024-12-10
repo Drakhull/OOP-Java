@@ -1,4 +1,4 @@
-package com.app.security;
+package com.app.authentication;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;

@@ -1,11 +1,11 @@
 package com.app.users;
 
-import com.app.security.PasswordHashing;
-
+import com.app.authentication.PasswordHashing;
+import com.app.authentication.Validation;
+import java.util.HashMap;
 
 import java.util.ArrayList;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.AddressException;
+
 
 
 public abstract class User {
@@ -16,21 +16,10 @@ public abstract class User {
     private String email;
     private String password;
 
-//     protected or private?
-    protected User() {
-
-    }
-
-    protected User (String name, String email, String password)
+    public User (String name, String email, String password)
         throws Exception {
-        if (!isEmailValid(email)) {
-            throw new IllegalArgumentException("Invalid E-mail: " + email);
-        }
-        if (password == null || password.length() < 6) {
-            throw new IllegalArgumentException("Password must be 6 character lenght.");
-        }
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name field can't be blank.");
+        if (!Validation.isUserValid(name, email, password)) {
+            throw new IllegalArgumentException("Invalid user data.");
         }
 
         this.id = idCounter++;
@@ -52,14 +41,12 @@ public abstract class User {
        return PasswordHashing.isPasswordValid(passwordToValidate, password);
     }
 
-    public static boolean isEmailValid(String email) {
-        boolean result = true;
-        try {
-            InternetAddress emailAddr = new InternetAddress(email);
-            emailAddr.validate();
-        } catch (AddressException ex) {
-            result = false;
-        }
-        return result;
+    public static void addUser(User user) {
+        UsersHashMap.addUser(user, user.email);
+        System.out.println("User" + user.name + "added");
+    }
+
+    public static User getUserByEmail() {
+        return users.get(email);
     }
 }

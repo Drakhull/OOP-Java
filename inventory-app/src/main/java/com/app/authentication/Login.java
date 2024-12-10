@@ -19,7 +19,7 @@ public class Login {
     }
 // after finding the user, compare password getting the found user as a parameter
 
-    // public boolean isValidPassword
+    // public boolean isPasswordValid
 
 
 }
