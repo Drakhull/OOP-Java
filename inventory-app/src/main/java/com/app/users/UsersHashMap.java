@@ -20,4 +20,10 @@ public class UsersHashMap {
     public static HashMap<String, User> getAllUsers() {
         return users;
     }
+
+    public static void displayAllUsers() {
+       getAllUsers().forEach((email, user) -> {
+            user.display();
+        });
+    }
 }
