@@ -1,4 +1,4 @@
-package com.ecommerce.users;
+package com.ecommerce.models;
 
 import com.ecommerce.authentication.PasswordHashing;
 import com.ecommerce.authentication.Validation;
@@ -18,9 +18,6 @@ public abstract class User {
 
     public User (String name, String email, String password)
         throws Exception {
-        if (!Validation.isUserValid(name, email, password)) {
-            throw new IllegalArgumentException("Invalid user data.");
-        }
 
         this.id = idCounter++;
         this.name = name;

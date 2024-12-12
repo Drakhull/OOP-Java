@@ -4,6 +4,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.AddressException;
 
 public class Validation {
+
+
+        // if (!Validation.isUserValid(name, email, password)) {
+        //     throw new IllegalArgumentException("Invalid user data.");
+        // }
     public static boolean isUserValid(String name, String email, String password) {
         String errorMessage = null;
         if (!Validation.isEmailValid(email)) {

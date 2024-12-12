@@ -1,6 +1,6 @@
-package com.ecommerce.users;
+package com.ecommerce.models;
 
-import com.ecommerce.sales.ShoppingCart;
+import com.ecommerce.models.ShoppingCart;
 
 import java.util.ArrayList;
 

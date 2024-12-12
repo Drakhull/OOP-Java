@@ -1,28 +1,36 @@
 package com.ecommerce.ui;
 
-import com.ecommerce.authentication.Login;
-import com.ecommerce.users.UsersHashMap;
-import com.ecommerce.users.User;
+import com.ecommerce.authentication.Auth;
+import com.ecommerce.models.User;
+
+import java.util.HashMap;
 
 import java.util.Scanner;
 
-public abstract class LoginUI {
-    public static User loginMenu()
+public abstract class AuthUI {
+    public static User authMenu(HashMap users)
         throws Exception {
             {
-                String email = inputEmail();
+                ClearTerminal.clear();
+                System.out.println("Welcome to the authentication menu!\nType 'exit' to leave.");
 
-                if (email.equalsIgnoreCase("exit") || inputPassword(email).equalsIgnoreCase("exit"))
+                String email = inputEmail(users);
+
+                if (email.equalsIgnoreCase("exit") || inputPassword(users, email).equalsIgnoreCase("exit"))
                     return null;
 
+                ClearTerminal.clear();
                 System.out.println("Login successful\nWelcome!");
 
 //                 should i return a "LoginResult" object containing the User instead?
-                return UsersHashMap.getUserByEmail(email);
+
+                if (users.get(email) instanceof User)
+                    return (User) users.get(email);
+                return null;
             }
         }
 
-        private static String inputEmail()
+        private static String inputEmail(HashMap users)
             throws Exception {
 
             Scanner scanner = new Scanner(System.in);
@@ -34,13 +42,13 @@ public abstract class LoginUI {
 
                 if (email.equalsIgnoreCase("exit"))
                     return email;
-                else if (!Login.searchUserEmail(email))
+                else if (!Auth.userEmailExists(users, email))
                          System.out.println("User does not exists or invalid e-mail.");
                     else return email;
             }
         }
 
-        private static String inputPassword(String email)
+        private static String inputPassword(HashMap users, String email)
             throws Exception {
 
             Scanner scanner = new Scanner(System.in);
@@ -52,7 +60,7 @@ public abstract class LoginUI {
 
                 if (password.equalsIgnoreCase("exit"))
                     return password;
-                else if (!Login.searchUserPassword(email, password))
+                else if (!Auth.userPasswordExists(users, email, password))
                         System.out.println("Invalid password.");
                     else return password;
             }

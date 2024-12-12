@@ -1,4 +1,4 @@
-package com.ecommerce.sales;
+package com.ecommerce.models;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
