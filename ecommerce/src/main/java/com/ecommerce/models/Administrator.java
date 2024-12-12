@@ -12,4 +12,8 @@ public class Administrator extends User{
     public Product createNewUser() {
         return null;
     }
+
+    // public Product createNewUser() {
+    //     return null;
+    // }
 }

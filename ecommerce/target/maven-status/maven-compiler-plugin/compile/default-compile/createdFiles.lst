@@ -1,12 +1,13 @@
+com/ecommerce/ui/LoginUI.class
 com/ecommerce/authentication/Validation.class
 com/ecommerce/models/ShoppingCart.class
 com/ecommerce/models/Order.class
 com/ecommerce/models/User.class
-com/ecommerce/models/Customer.class
-com/ecommerce/ui/ClearTerminal.class
 com/ecommerce/ui/AuthUI.class
 com/ecommerce/authentication/Auth.class
-com/ecommerce/models/Product.class
 com/ecommerce/app/App.class
 com/ecommerce/authentication/PasswordHashing.class
 com/ecommerce/models/Administrator.class
+com/ecommerce/models/Customer.class
+com/ecommerce/ui/ClearTerminal.class
+com/ecommerce/models/Product.class

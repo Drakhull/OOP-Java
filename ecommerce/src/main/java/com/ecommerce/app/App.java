@@ -6,6 +6,7 @@ import com.ecommerce.models.Administrator;
 import java.util.HashMap;
 
 import com.ecommerce.ui.AuthUI;
+import com.ecommerce.ui.LoginUI;
 
 import com.ecommerce.authentication.Auth;
 
@@ -25,10 +26,10 @@ public class App
 
         User user = AuthUI.authMenu(users);
         if (user instanceof Customer) {
-            user.display();
+            LoginUI.menuCustomer();
         }
         if (user instanceof Administrator) {
-            user.display();
+            LoginUI.menuAdmin();
         }
         // if (UsersHashMap.getUserByEmail("iuri1@gmail.com") instanceof Customer){
         //     System.out.println("É uma instancia");
