@@ -18,10 +18,10 @@ public class App
         UsersHashMap.addUser(new Customer("Iuri 6 Grego", "iuri3@gmail.com", "password1236", "Anywhere3"));
         // UsersHashMap.displayAllUsers();
 
-        LoginUI.loginMenu();
-
-        Login.login("iuri@gmail.com", "password123");
-
+        User user = LoginUI.loginMenu();
+        if (user instanceof Customer){
+            user.display();
+        }
         // if (UsersHashMap.getUserByEmail("iuri1@gmail.com") instanceof Customer){
         //     System.out.println("É uma instancia");
         // }else
