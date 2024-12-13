@@ -7,6 +7,7 @@ com/ecommerce/ui/AuthUI.class
 com/ecommerce/authentication/Auth.class
 com/ecommerce/app/App.class
 com/ecommerce/authentication/PasswordHashing.class
+com/ecommerce/ui/CreateUserUI.class
 com/ecommerce/models/Administrator.class
 com/ecommerce/models/Customer.class
 com/ecommerce/ui/ClearTerminal.class

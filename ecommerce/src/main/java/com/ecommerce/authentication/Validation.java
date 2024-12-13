@@ -4,12 +4,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.AddressException;
 
 public class Validation {
-
+    private Validation(){
+    }
 
         // if (!Validation.isUserValid(name, email, password)) {
         //     throw new IllegalArgumentException("Invalid user data.");
         // }
-    public static boolean isUserValid(String name, String email, String password) {
+    private static boolean isUserValid(String name, String email, String password) {
         String errorMessage = null;
         if (!Validation.isEmailValid(email)) {
             errorMessage = "Invalid E-mail: " + email;
@@ -26,15 +27,21 @@ public class Validation {
 
         return true;
     }
-//     public static boolean isCustomerValid(String name, String email, String password) {
-//         if (!isUserValid(name, email, password)){
-//             return false
-//         } else if (String )
-//     }
-//
-//     public static boolean isAdministratorValid(String name, String email, String password) {
-//
-//     }
+
+    public static boolean isCustomerValid(String name, String email, String password, String address) {
+        if (!isUserValid(name, email, password) || address.isEmpty()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isAdministratorValid(String name, String email, String password) {
+        if (!isUserValid(name, email, password)) {
+            return false;
+        }
+        return true;
+    }
 
     public static boolean isEmailValid(String email) {
         boolean result = true;

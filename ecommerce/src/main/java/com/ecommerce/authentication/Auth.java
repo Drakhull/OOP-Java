@@ -8,7 +8,10 @@ import java.util.HashMap;
 
 import javax.mail.internet.InternetAddress;
 
-public abstract class Auth {
+public class Auth {
+    private Auth(){
+    }
+
     public static boolean userEmailExists(HashMap users, String email)
         throws Exception {
 

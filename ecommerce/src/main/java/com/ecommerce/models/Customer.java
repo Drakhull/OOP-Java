@@ -27,8 +27,8 @@ public class Customer extends User {
 
     public void display(){
         super.display();
-        System.out.print("\nAddress: " + address /*+
-                           "\n\nPurchase History: \n" + displayAllPurchases()*/
-                           );
+        System.out.print("\nAddress: " + address +
+                           "\n\nPurchase History: \n");
+                           displayAllPurchases();
     }
 }
