@@ -7,41 +7,88 @@ public class Validation {
     private Validation(){
     }
 
-        // if (!Validation.isUserValid(name, email, password)) {
-        //     throw new IllegalArgumentException("Invalid user data.");
-        // }
-    private static boolean isUserValid(String name, String email, String password) {
-        String errorMessage = null;
-        if (!Validation.isEmailValid(email)) {
-            errorMessage = "Invalid E-mail: " + email;
-        } else if (password == null || password.length() < 6) {
-            errorMessage = "Password must be 6 character length.";
-        } else if (name == null || name.trim().isEmpty()) {
-            errorMessage = "Name field can't be blank.";
-        }
+    // private static boolean isUserValid(String name, String email, String password) {
+    //     String errorMessage = null;
+    //     if (!Validation.isEmailValid(email)) {
+    //         errorMessage = "Invalid E-mail: " + email;
+    //     } else if (password == null || password.length() < 6) {
+    //         errorMessage = "Password must be 6 character length.";
+    //     } else if (name == null || name.trim().isEmpty()) {
+    //         errorMessage = "Name field can't be blank.";
+    //     }
+    //
+    //     if (errorMessage != null) {
+    //         System.out.println(errorMessage);
+    //         return false;
+    //     }
+    //
+    //     return true;
+    // }
+    //
+    // public static boolean isCustomerValid(String name, String email, String password, String address) {
+    //     if (!isUserValid(name, email, password) || address.isEmpty()) {
+    //         return false;
+    //     }
+    //
+    //     return true;
+    // }
+    //
+    // public static boolean isAdministratorValid(String name, String email, String password) {
+    //     if (!isUserValid(name, email, password)) {
+    //         return false;
+    //     }
+    //     return true;
+    // }
 
-        if (errorMessage != null) {
-            System.out.println(errorMessage);
+    public static boolean isNameValid(String name) {
+        if (name == null || name.trim().isEmpty())
+            return false;
+
+        // regex to verify if the name has only letters and spaces
+        String nameRegex = "^[a-zA-Z ]+$";
+
+        return name.matches(nameRegex);
+    }
+
+    public static boolean isPasswordStrong(String password) {
+        if (password == null || password.trim().isEmpty()) {
             return false;
         }
 
-        return true;
-    }
-
-    public static boolean isCustomerValid(String name, String email, String password, String address) {
-        if (!isUserValid(name, email, password) || address.isEmpty()) {
+        if (password.length() < 8) {
             return false;
         }
 
-        return true;
+        boolean hasLowerCase = false;
+        boolean hasUpperCase = false;
+        boolean hasDigit = false;
+        boolean hasSpecialChar = false;
+
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+
+            if (Character.isLowerCase(c)) {
+                hasLowerCase = true;
+            }
+            else if (Character.isUpperCase(c)) {
+                hasUpperCase = true;
+            }
+            else if (Character.isDigit(c)) {
+                hasDigit = true;
+            }
+            else if (isSpecialCharacter(c)) {
+                hasSpecialChar = true;
+            }
+        }
+
+        return hasLowerCase && hasUpperCase && hasDigit && hasSpecialChar;
     }
 
-    public static boolean isAdministratorValid(String name, String email, String password) {
-        if (!isUserValid(name, email, password)) {
-            return false;
-        }
-        return true;
+    private static boolean isSpecialCharacter(char c) {
+        String specialChars = "!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?";
+        return specialChars.indexOf(c) >= 0;
     }
+
 
     public static boolean isEmailValid(String email) {
         boolean result = true;

@@ -1,5 +1,7 @@
 package com.ecommerce.models;
 
+import com.ecommerce.ui.CreateUserUI;
+
 public class Administrator extends User{
     public Administrator (String name, String email, String password)
         throws Exception {
@@ -10,13 +12,8 @@ public class Administrator extends User{
         return null;
     }
 
-    public User createNewUser(String name, String email, String password, String Address) {
-
-        return null;
-    }
-
-    public User createNewUser(String name, String email, String password) {
-
-        return null;
+    public void createNewUser()
+        throws Exception {
+        CreateUserUI.menu();
     }
 }
