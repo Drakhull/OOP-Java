@@ -1,6 +1,8 @@
-    package com.ecommerce.models;
+package com.ecommerce.models;
 
 import com.ecommerce.models.ShoppingCart;
+
+import com.ecommerce.ui.LoginUI;
 
 import java.util.ArrayList;
 
@@ -12,15 +14,11 @@ public class Customer extends User {
         throws Exception {
         super(name, email, password);
 
-        if (address == null || address.trim().isEmpty()) {
-            throw new IllegalArgumentException("Address field can't be blank.");
-        }
-
         this.address = address;
         this.purchaseHistory = new ArrayList<ShoppingCart>();
     }
 
-        public void displayAllPurchases(){
+    public void displayAllPurchases(){
         for(ShoppingCart purchase : purchaseHistory)
             purchase.display();
     }
@@ -28,7 +26,13 @@ public class Customer extends User {
     public void display(){
         super.display();
         System.out.print("\nAddress: " + address +
-                           "\n\nPurchase History: \n");
-                           displayAllPurchases();
+                         "\n\nPurchase History: \n");
+                          displayAllPurchases();
+    }
+
+    public void showMenu(User user)
+        throws Exception {
+
+        LoginUI.menuCustomer(user);
     }
 }

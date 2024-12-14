@@ -23,8 +23,12 @@ public class Product {
     }
 
     public void display() {
-        System.out.println("\nID: " + id + "\nName: " + name + "\nPrice: " +
+        System.out.println("\nID: " + id + "\nName: " + name + "\nPrice: " + price +
                            "\nQuantity in stock: " + quantityInStock +
                            "\nDescription: " + description + "\nCategory: " + category);
+    }
+
+    public int getId() {
+        return this.id;
     }
 }

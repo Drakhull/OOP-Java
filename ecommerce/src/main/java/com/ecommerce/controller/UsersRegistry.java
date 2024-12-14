@@ -1,4 +1,6 @@
-package com.ecommerce.models;
+package com.ecommerce.controller;
+
+import com.ecommerce.models.User;
 
 import java.util.HashMap;
 //  this class is necessary for the Administrator createNewUser logic, because

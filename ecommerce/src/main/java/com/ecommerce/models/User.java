@@ -32,6 +32,8 @@ public abstract class User {
                          "\nPassword: " + password);
     }
 
+    public abstract void showMenu(User user) throws Exception;
+
     public boolean isPasswordValid(String passwordToValidate)
         throws Exception {
 

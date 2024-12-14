@@ -3,7 +3,7 @@ package com.ecommerce.app;
 import com.ecommerce.models.Customer;
 import com.ecommerce.models.User;
 import com.ecommerce.models.Administrator;
-import com.ecommerce.models.UsersRegistry;
+import com.ecommerce.controller.UsersRegistry;
 import java.util.HashMap;
 
 import com.ecommerce.ui.AuthUI;
@@ -27,20 +27,22 @@ public class App {
         while (true) {
             User user = AuthUI.menu();
             if (user == null) {
-                UsersRegistry.displayUsers();
                 System.out.println("\n\nApplication Closed.\n\n");
                 System.exit(0);
-            } else if (user instanceof Customer) {
-                Customer customer = (Customer) user;
-                    LoginUI.menuCustomer();
-                    break;
-                } else if (user instanceof Administrator) {
-                        Administrator administrator = (Administrator) user;
-                        LoginUI.menuAdmin();
-                        administrator.createNewUser();
-                        break;
-                    }
+            }
+
+            user.showMenu(user);
+
+            // if (user instanceof Customer) {
+            //         LoginUI.menuCustomer(user);
+            //         break;
+            // }
+            //
+            // if (user instanceof Administrator) {
+            //         user(user);
+            //         break;
+            // }
+            UsersRegistry.displayUsers();
         }
-        UsersRegistry.displayUsers();
     }
 }

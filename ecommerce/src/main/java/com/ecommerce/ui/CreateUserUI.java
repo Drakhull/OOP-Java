@@ -5,7 +5,7 @@ import com.ecommerce.authentication.Validation;
 import com.ecommerce.models.User;
 import com.ecommerce.models.Customer;
 import com.ecommerce.models.Administrator;
-import com.ecommerce.models.UsersRegistry;
+import com.ecommerce.controller.UsersRegistry;
 
 
 import java.util.Scanner;
@@ -22,19 +22,20 @@ public class CreateUserUI {
 
 
         while(!option.equalsIgnoreCase("0")) {
-        ClearTerminal.clear();
+            ClearTerminal.clear();
 
-        System.out.println("Welcome to the Create User menu!\nType 'exit' to leave.\n");
-        System.out.println("[0] Exit\n" +
-                           "[1] Create Administrator\n" +
-                           "[2] Create Customer\n\n" +
-                           "Choose an option: ");
+            System.out.println("Welcome to the User Creation menu!\n");
+            System.out.println("[0] Exit\n" +
+                               "[1] Create Administrator\n" +
+                               "[2] Create Customer\n\n" +
+                               "Choose an option: ");
 
             option = scanner.nextLine();
 
             switch (option){
                 case "0": {
                     System.out.println("\n\nReturning...");
+                    // scanner.close();
                     break;
                 }
 
@@ -49,7 +50,6 @@ public class CreateUserUI {
                 }
 
                 default:
-                    System.out.println("\nInvalid Option.\n\nTry again: ");
             }
         }
     }
@@ -84,9 +84,7 @@ public class CreateUserUI {
             email = scanner.nextLine();
             if (email.equalsIgnoreCase("exit"))
                 return;
-            if (!UsersRegistry.containsKey(email))
-                break;
-            if (Validation.isEmailValid(email))
+            if (Validation.isEmailValid(email) && !UsersRegistry.containsKey(email))
                 break;
 
             System.out.println("\n\nInvalid E-mail or wrong format! Example: 'user.name@example.com'" +

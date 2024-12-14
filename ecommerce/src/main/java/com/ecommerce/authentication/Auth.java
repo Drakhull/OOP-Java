@@ -1,7 +1,7 @@
 package com.ecommerce.authentication;
 
 import com.ecommerce.models.User;
-import com.ecommerce.models.UsersRegistry;
+import com.ecommerce.controller.UsersRegistry;
 import com.ecommerce.models.Customer;
 import com.ecommerce.models.Administrator;
 
