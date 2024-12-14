@@ -1,6 +1,7 @@
 package com.ecommerce.authentication;
 
 import com.ecommerce.models.User;
+import com.ecommerce.models.UsersRegistry;
 import com.ecommerce.models.Customer;
 import com.ecommerce.models.Administrator;
 
@@ -12,24 +13,11 @@ public class Auth {
     private Auth(){
     }
 
-    public static boolean userEmailExists(HashMap users, String email)
+    public static boolean userPasswordExists(String email, String password)
         throws Exception {
 
-            if (users.get(email) instanceof User){
-                User user = (User) users.get(email);
-                if (user == null) {
-                    return false;
-                }else return true;
-            }
-
-            return false;
-    }
-
-    public static boolean userPasswordExists(HashMap users, String email, String password)
-        throws Exception {
-
-        if (users.get(email) instanceof User){
-            User user = (User) users.get(email);
+        if (UsersRegistry.get(email) instanceof User){
+            User user = (User) UsersRegistry.get(email);
             if (user == null || !user.isPasswordValid(password)){
                 return false;
             }else return true;

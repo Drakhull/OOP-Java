@@ -2,6 +2,7 @@ package com.ecommerce.ui;
 
 import com.ecommerce.authentication.Auth;
 import com.ecommerce.models.User;
+import com.ecommerce.models.UsersRegistry;
 
 import java.util.HashMap;
 
@@ -11,15 +12,15 @@ public class AuthUI {
     private AuthUI(){
     }
 
-    public static User menu(HashMap users)
+    public static User menu()
         throws Exception {
         {
             ClearTerminal.clear();
             System.out.println("Welcome to the authentication menu!\nType 'exit' to leave.");
 
-            String email = inputEmail(users);
+            String email = inputEmail();
 
-            if (email.equalsIgnoreCase("exit") || inputPassword(users, email).equalsIgnoreCase("exit"))
+            if (email.equalsIgnoreCase("exit") || inputPassword(email).equalsIgnoreCase("exit"))
                 return null;
 
             ClearTerminal.clear();
@@ -27,13 +28,13 @@ public class AuthUI {
 
 //                 should i return a "LoginResult" object containing the User instead?
 
-            if (users.get(email) instanceof User)
-                return (User) users.get(email);
+            if (UsersRegistry.get(email) instanceof User)
+                return (User) UsersRegistry.get(email);
             return null;
         }
     }
 
-    private static String inputEmail(HashMap users)
+    private static String inputEmail()
         throws Exception {
 
         Scanner scanner = new Scanner(System.in);
@@ -45,13 +46,13 @@ public class AuthUI {
 
             if (email.equalsIgnoreCase("exit"))
                 return email;
-            else if (!Auth.userEmailExists(users, email))
+            else if (!UsersRegistry.containsKey(email))
                         System.out.println("User does not exists or invalid e-mail.");
                 else return email;
         }
     }
 
-    private static String inputPassword(HashMap users, String email)
+    private static String inputPassword(String email)
         throws Exception {
 
         Scanner scanner = new Scanner(System.in);
@@ -63,7 +64,7 @@ public class AuthUI {
 
             if (password.equalsIgnoreCase("exit"))
                 return password;
-            else if (!Auth.userPasswordExists(users, email, password))
+            else if (!Auth.userPasswordExists(email, password))
                     System.out.println("Invalid password.");
                 else return password;
         }
