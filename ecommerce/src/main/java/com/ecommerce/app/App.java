@@ -9,8 +9,6 @@ import java.util.HashMap;
 import com.ecommerce.ui.AuthUI;
 import com.ecommerce.ui.LoginUI;
 
-import com.ecommerce.authentication.Auth;
-
 public class App {
     public static void main(String[] args) throws Exception {
         // HashMap<String, User> users = new HashMap<>();
@@ -32,16 +30,6 @@ public class App {
             }
 
             user.showMenu(user);
-
-            // if (user instanceof Customer) {
-            //         LoginUI.menuCustomer(user);
-            //         break;
-            // }
-            //
-            // if (user instanceof Administrator) {
-            //         user(user);
-            //         break;
-            // }
             UsersRegistry.displayUsers();
         }
     }

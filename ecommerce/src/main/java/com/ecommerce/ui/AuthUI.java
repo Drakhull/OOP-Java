@@ -1,6 +1,6 @@
 package com.ecommerce.ui;
 
-import com.ecommerce.authentication.Auth;
+import com.ecommerce.authentication.Validation;
 import com.ecommerce.models.User;
 import com.ecommerce.controller.UsersRegistry;
 
@@ -64,7 +64,7 @@ public class AuthUI {
 
             if (password.equalsIgnoreCase("exit"))
                 return password;
-            else if (!Auth.userPasswordExists(email, password))
+            else if (!Validation.userPasswordExists(email, password))
                     System.out.println("Invalid password.");
                 else return password;
         }

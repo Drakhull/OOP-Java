@@ -68,9 +68,7 @@ public class LoginUI {
                 Customer customer = (Customer) user;
                 System.out.println("Welcome Customer!");
                 System.out.println("\n[0] Exit" +
-                                   "\n[1] Create New User" +
-                                   "\n[2] Create New Product" +
-                                   "\n[3] Reports" +
+                                   "\n[1] Start new order" +
                                    "\n\nChoose an option: ");
                 Scanner scanner = new Scanner(System.in);
                 String option = scanner.nextLine();

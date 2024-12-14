@@ -1,44 +1,14 @@
 package com.ecommerce.authentication;
 
+import com.ecommerce.controller.UsersRegistry;
+import com.ecommerce.models.User;
+
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.AddressException;
 
 public class Validation {
     private Validation(){
     }
-
-    // private static boolean isUserValid(String name, String email, String password) {
-    //     String errorMessage = null;
-    //     if (!Validation.isEmailValid(email)) {
-    //         errorMessage = "Invalid E-mail: " + email;
-    //     } else if (password == null || password.length() < 6) {
-    //         errorMessage = "Password must be 6 character length.";
-    //     } else if (name == null || name.trim().isEmpty()) {
-    //         errorMessage = "Name field can't be blank.";
-    //     }
-    //
-    //     if (errorMessage != null) {
-    //         System.out.println(errorMessage);
-    //         return false;
-    //     }
-    //
-    //     return true;
-    // }
-    //
-    // public static boolean isCustomerValid(String name, String email, String password, String address) {
-    //     if (!isUserValid(name, email, password) || address.isEmpty()) {
-    //         return false;
-    //     }
-    //
-    //     return true;
-    // }
-    //
-    // public static boolean isAdministratorValid(String name, String email, String password) {
-    //     if (!isUserValid(name, email, password)) {
-    //         return false;
-    //     }
-    //     return true;
-    // }
 
     public static boolean isNameValid(String name) {
         if (name == null || name.trim().isEmpty())
@@ -99,5 +69,18 @@ public class Validation {
             result = false;
         }
         return result;
+    }
+
+    public static boolean userPasswordExists(String email, String password)
+        throws Exception {
+
+        if (UsersRegistry.get(email) instanceof User){
+            User user = (User) UsersRegistry.get(email);
+            if (user == null || !user.isPasswordValid(password)){
+                return false;
+            }else return true;
+        }
+
+        return false;
     }
 }

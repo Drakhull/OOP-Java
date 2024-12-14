@@ -5,7 +5,6 @@ com/ecommerce/models/Order.class
 com/ecommerce/models/User.class
 com/ecommerce/ui/AuthUI.class
 com/ecommerce/models/Order$OrderProduct.class
-com/ecommerce/authentication/Auth.class
 com/ecommerce/app/App.class
 com/ecommerce/authentication/PasswordHashing.class
 com/ecommerce/ui/CreateUserUI.class
