@@ -1,7 +1,5 @@
 package com.ecommerce.models;
 
-import java.util.ArrayList;
-
 public class ShoppingCart {
     private Customer customer;
     private Order order;

@@ -1,13 +1,11 @@
 package com.ecommerce.app;
 
-import com.ecommerce.models.Customer;
 import com.ecommerce.models.User;
 import com.ecommerce.models.Administrator;
 import com.ecommerce.controller.UsersRegistry;
 import java.util.HashMap;
 
 import com.ecommerce.ui.AuthUI;
-import com.ecommerce.ui.LoginUI;
 
 public class App {
     public static void main(String[] args) throws Exception {

@@ -1,12 +1,7 @@
 package com.ecommerce.models;
 
 import com.ecommerce.authentication.PasswordHashing;
-import com.ecommerce.authentication.Validation;
 import java.util.HashMap;
-
-import java.util.ArrayList;
-
-
 
 public abstract class User {
     private static int idCounter = 0;
