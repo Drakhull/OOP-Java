@@ -26,7 +26,7 @@ public class App {
 
         while (true) {
             User user = AuthUI.menu();
-            if (user == null){
+            if (user == null) {
                 UsersRegistry.displayUsers();
                 System.out.println("\n\nApplication Closed.\n\n");
                 System.exit(0);

@@ -84,10 +84,12 @@ public class CreateUserUI {
             email = scanner.nextLine();
             if (email.equalsIgnoreCase("exit"))
                 return;
+            if (!UsersRegistry.containsKey(email))
+                break;
             if (Validation.isEmailValid(email))
                 break;
 
-            System.out.println("\n\nWrong E-mail format! Example: 'user.name@example.com'" +
+            System.out.println("\n\nInvalid E-mail or wrong format! Example: 'user.name@example.com'" +
                                 "\n\nTry again: ");
         }
 
