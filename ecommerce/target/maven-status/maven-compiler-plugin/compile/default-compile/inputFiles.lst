@@ -1,13 +1,10 @@
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/app/App.java
-/home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/authentication/PasswordHashing.java
-/home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/authentication/Validation.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/controller/ProductsRegistry.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/controller/UsersRegistry.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/models/Administrator.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/models/Customer.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/models/Order.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/models/Product.java
-/home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/models/Reports.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/models/ShoppingCart.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/models/User.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/ui/AuthUI.java
@@ -16,3 +13,6 @@
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/ui/CreateUserUI.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/ui/LoginUI.java
 /home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/ui/ShoppingUI.java
+/home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/utils/PasswordHashing.java
+/home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/utils/Reports.java
+/home/iuri/faculdade/OOP-Java/ecommerce/src/main/java/com/ecommerce/utils/Validation.java

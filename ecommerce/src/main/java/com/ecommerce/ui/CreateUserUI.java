@@ -1,7 +1,6 @@
 package com.ecommerce.ui;
 
-import com.ecommerce.authentication.Validation;
-import com.ecommerce.models.User;
+import com.ecommerce.utils.Validation;
 import com.ecommerce.models.Customer;
 import com.ecommerce.models.Administrator;
 import com.ecommerce.controller.UsersRegistry;

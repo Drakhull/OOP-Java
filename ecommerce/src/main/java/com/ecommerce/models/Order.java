@@ -1,5 +1,7 @@
 package com.ecommerce.models;
 
+import com.ecommerce.utils.Reports;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.time.LocalDateTime;
@@ -28,6 +30,7 @@ public class Order {
             orderProducts.put(product, new OrderProduct(product, quantity));
         }
 
+        Reports.compareAndChangeLowStockProduct (product);
         calculateTotalValue();
     }
 
@@ -36,31 +39,20 @@ public class Order {
         return orderProduct.getQuantity();
     }
 
+    public BigDecimal getTotalValue() {
+        return this.totalValue;
+    }
+
     public boolean productAlreadyExists(Product product) {
         OrderProduct orderProduct = orderProducts.get(product);
 
         return orderProduct != null;
     }
 
-    // public void validateOrRemoveProduct(Product product, int quantity) {
-    //     OrderProduct orderProduct = orderProducts.get(product);
-    //     if (orderProduct != null) {
-    //
-    //         orderProduct.decrementQuantity(quantity);
-    //
-    //         if (orderProduct.getQuantity() <= 0) {
-    //             orderProducts.remove(product);
-    //         }
-    //
-    //         calculateTotalValue();
-    //     } else {
-    //         System.out.println("Product not found in the order.");
-    //     }
-    // }
-
     public void decrementStock () {
-        orderProducts.forEach((id, product) -> {
-            product.decrementStock(product.getQuantity());
+        orderProducts.forEach((id, orderProduct) -> {
+            orderProduct.decrementStock(orderProduct.getQuantity());
+            Reports.compareAndChangeLowStockProduct (orderProduct.getProduct());
         });
     }
     public void incrementStock () {
@@ -77,12 +69,6 @@ public class Order {
         OrderProduct orderProduct = orderProducts.get(product);
         orderProduct.incrementQuantity(quantity);
     }
-
-    // public boolean isStockEnough(Product product, int quantity) {
-    //
-    //     OrderProduct orderProduct = orderProducts.get(product);
-    //     return orderProduct.isStockEnough(product, quantity);
-    // }
 
     public void display() {
         String formattedDate = this.date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
@@ -142,10 +128,6 @@ public class Order {
             BigDecimal quantity = new BigDecimal(this.quantity);
             return quantity.multiply(product.getPrice());
         }
-
-        // private boolean isStockEnough(Product product, int quantity) {
-        //     return product.isStockEnough((this.quantity + quantity));
-        // }
 
         private Product getProduct() {
             return this.product;

@@ -3,6 +3,7 @@ package com.ecommerce.ui;
 import com.ecommerce.models.User;
 import com.ecommerce.models.Customer;
 import com.ecommerce.models.Administrator;
+import com.ecommerce.utils.Reports;
 
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class LoginUI {
     private LoginUI(){
     }
 
-    public static void menuAdmin(User user, Scanner scanner)
+    public static void adminMenu(User user, Scanner scanner)
         throws Exception {
 
         boolean exit = false;
@@ -46,6 +47,11 @@ public class LoginUI {
                         break;
                     }
 
+                    case "3": {
+                        reportsMenu(scanner);
+                        break;
+                    }
+
                     default:
                 }
             }
@@ -56,7 +62,7 @@ public class LoginUI {
         }
     }
 
-    public static void menuCustomer(User user, Scanner scanner)
+    public static void customerMenu(User user, Scanner scanner)
         throws Exception {
 
         boolean exit = false;
@@ -93,4 +99,49 @@ public class LoginUI {
             }
         }
     }
+
+    private static void reportsMenu(Scanner scanner) {
+
+        boolean exit = false;
+
+        while (!exit) {
+            ClearTerminal.clear();
+
+            System.out.println("Reports Menu");
+            System.out.println("\n[0] Exit" +
+                                "\n[1] Most expensive order" +
+                                "\n[2] Lowest stock product" +
+                                "\n\nChoose an option: ");
+            String option = scanner.nextLine();
+
+            switch (option) {
+                case "0": {
+                    ClearTerminal.clear();
+                    System.out.println("\n\nReturning...");
+                    exit = true;
+                    break;
+                }
+
+                case "1": {
+                    ClearTerminal.clear();
+                    Reports.displayHighestValuePurchase();
+                    System.out.println("\n\nPress enter to continue...");
+                    scanner.nextLine();
+                    break;
+                }
+
+                case "2": {
+                    ClearTerminal.clear();
+                    Reports.displaylowestStockProduct();
+                    System.out.println("\n\nPress enter to continue...");
+                    scanner.nextLine();
+                    break;
+                }
+
+                default:
+            }
+        }
+    }
+
 }
+

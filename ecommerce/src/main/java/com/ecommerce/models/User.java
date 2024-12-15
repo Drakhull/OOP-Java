@@ -1,8 +1,7 @@
 package com.ecommerce.models;
 
-import com.ecommerce.authentication.PasswordHashing;
+import com.ecommerce.utils.PasswordHashing;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public abstract class User {

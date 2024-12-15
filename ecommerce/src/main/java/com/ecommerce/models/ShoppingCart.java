@@ -1,5 +1,7 @@
 package com.ecommerce.models;
 
+import java.math.BigDecimal;
+
 public class ShoppingCart {
     private Customer customer;
     private Order order;
@@ -17,5 +19,9 @@ public class ShoppingCart {
 
     public Order getOrder() {
         return this.order;
+    }
+
+    public BigDecimal getTotalValue() {
+        return order.getTotalValue();
     }
 }

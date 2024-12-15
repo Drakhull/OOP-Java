@@ -7,7 +7,6 @@ import com.ecommerce.models.Product;
 import com.ecommerce.controller.UsersRegistry;
 import com.ecommerce.controller.ProductsRegistry;
 
-import java.util.HashMap;
 import java.util.Scanner;
 import java.math.BigDecimal;
 
@@ -27,12 +26,6 @@ public class App {
         ProductsRegistry.put(new Product("Product 5", 5, "String description", "String category", new BigDecimal(20)));
         ProductsRegistry.put(new Product("Product 6", 100, "String description", "String category", new BigDecimal(20)));
 
-        // Customer customer = new Customer("Iuri Viana", "iuri@gmail.com", "password123", "Anywhere");
-        // UsersRegistry.put(customer);
-        // UsersRegistry.put(new Customer("Iuri Vi ana", "iuri1@gmail.com", "password1234", "Anywhere1"));
-        // UsersRegistry.put(new Customer("Iuri Vi a ana", "iuri2@gmail.com", "password1235", "Anywhere2"));
-        // UsersRegistry.put(new Customer("Iuri 6 Grego", "iuri3@gmail.com", "password1236", "Anywhere3"));
-
         Scanner scanner = new Scanner(System.in);
 
         try {
@@ -40,11 +33,11 @@ public class App {
                 User user = AuthUI.menu(scanner);
                 if (user == null) {
                     System.out.println("\n\nApplication Closed.\n\n");
+                    scanner.nextLine();
                     break;
                 }
 
                 user.showMenu(user, scanner);
-                UsersRegistry.displayUsers();
             }
         } finally {
             scanner.close();

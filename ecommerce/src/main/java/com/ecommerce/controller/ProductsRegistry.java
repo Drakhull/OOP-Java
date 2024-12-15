@@ -29,4 +29,12 @@ public class ProductsRegistry {
             System.out.println("\n=============================================\n");
         });
     }
+
+    public static void displayInStockProducts() {
+        System.out.println("\n=============================================\n");
+        products.forEach((id, product) -> {
+            product.displayInStock();
+            System.out.println("\n=============================================\n");
+        });
+    }
 }

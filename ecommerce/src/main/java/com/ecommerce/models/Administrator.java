@@ -24,6 +24,6 @@ public class Administrator extends User{
     public void showMenu(User user, Scanner scanner)
         throws Exception {
 
-        LoginUI.menuAdmin(user, scanner);
+        LoginUI.adminMenu(user, scanner);
     }
 }

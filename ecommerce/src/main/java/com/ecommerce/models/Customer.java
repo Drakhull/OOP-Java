@@ -34,7 +34,7 @@ public class Customer extends User {
     public void showMenu(User user, Scanner scanner)
         throws Exception {
 
-        LoginUI.menuCustomer(user, scanner);
+        LoginUI.customerMenu(user, scanner);
     }
 
     public void addPurchase(ShoppingCart purchase) {

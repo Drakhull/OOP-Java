@@ -31,6 +31,16 @@ public class Product {
                            "\nPrice: " + price);
     }
 
+    public void displayInStock() {
+        if (this.quantityInStock > 0)
+            System.out.println("\nProduct ID: " + id +
+                            "\nName: " + name +
+                            "\nQuantity in stock: " + quantityInStock +
+                            "\nDescription: " + description +
+                            "\nCategory: " + category +
+                            "\nPrice: " + price);
+    }
+
         public void displayForOrder() {
         System.out.println("\nProduct ID: " + id +
                            "\nName: " + name +
@@ -52,8 +62,16 @@ public class Product {
         return quantityInStock >= quantityOrdered;
     }
 
+    public boolean isStockLesserThan (Product product) {
+        return this.quantityInStock < product.getStock();
+    }
+
     public int getId() {
         return this.id;
+    }
+
+    public int getStock() {
+        return this.quantityInStock;
     }
 
     public BigDecimal getPrice() {

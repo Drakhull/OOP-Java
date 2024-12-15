@@ -1,10 +1,8 @@
 package com.ecommerce.ui;
 
-import com.ecommerce.authentication.Validation;
+import com.ecommerce.utils.Validation;
 import com.ecommerce.models.User;
 import com.ecommerce.controller.UsersRegistry;
-
-import java.util.HashMap;
 
 import java.util.Scanner;
 

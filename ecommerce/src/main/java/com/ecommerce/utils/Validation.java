@@ -1,4 +1,4 @@
-package com.ecommerce.authentication;
+package com.ecommerce.utils;
 
 import com.ecommerce.controller.UsersRegistry;
 import com.ecommerce.models.User;

@@ -1,4 +1,4 @@
-package com.ecommerce.authentication;
+package com.ecommerce.utils;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
