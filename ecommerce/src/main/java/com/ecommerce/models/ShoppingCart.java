@@ -9,13 +9,13 @@ public class ShoppingCart {
         this.order = order;
     }
 
-    public void display(){
+    public void display() {
         this.customer.simpleDisplay();
         System.out.println("\n==============================================");
         order.display();
     }
 
-    public Order getOrder(){
+    public Order getOrder() {
         return this.order;
     }
 }

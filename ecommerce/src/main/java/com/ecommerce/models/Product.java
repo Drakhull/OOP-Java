@@ -25,10 +25,10 @@ public class Product {
     public void display() {
         System.out.println("\nProduct ID: " + id +
                            "\nName: " + name +
-                           "\nPrice: " + price +
                            "\nQuantity in stock: " + quantityInStock +
                            "\nDescription: " + description +
-                           "\nCategory: " + category);
+                           "\nCategory: " + category +
+                           "\nPrice: " + price);
     }
 
         public void displayForOrder() {
@@ -46,6 +46,10 @@ public class Product {
     public void decrementStockQuantity(int quantity) {
         if (this.quantityInStock > 0)
             this.quantityInStock -= quantity;
+    }
+
+    public boolean isStockEnough (int quantityOrdered) {
+        return quantityInStock >= quantityOrdered;
     }
 
     public int getId() {

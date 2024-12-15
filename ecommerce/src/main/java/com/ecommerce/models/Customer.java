@@ -15,7 +15,7 @@ public class Customer extends User {
         super(name, email, password);
 
         this.address = address;
-        this.purchaseHistory = new HashMap<Order, ShoppingCart>();
+        this.purchaseHistory = new HashMap<>();
     }
 
     public void displayAllPurchases() {

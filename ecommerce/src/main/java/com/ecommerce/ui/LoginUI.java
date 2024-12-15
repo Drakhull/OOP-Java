@@ -80,7 +80,7 @@ public class LoginUI {
                     }
 
                     case "1": {
-                        ShoppingUI.menu(scanner);
+                        ShoppingUI.menu(customer, scanner);
                         break;
                     }
 
