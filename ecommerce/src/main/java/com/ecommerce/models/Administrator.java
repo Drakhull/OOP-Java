@@ -6,7 +6,9 @@ import com.ecommerce.ui.LoginUI;
 
 import java.util.Scanner;
 
-public class Administrator extends User{
+import java.io.*;
+
+public class Administrator extends User implements Serializable {
     public Administrator (String name, String email, String password)
         throws Exception {
         super(name, email, password);

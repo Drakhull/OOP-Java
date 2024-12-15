@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Order {
+import java.io.*;
+
+public class Order implements Serializable {
     private static int orderCounter = 0;
 
     private int orderNumber;
@@ -20,6 +22,16 @@ public class Order {
         this.date = LocalDateTime.now();
         this.orderProducts = new HashMap<>();
         this.totalValue = BigDecimal.ZERO;
+    }
+
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        out.writeInt(orderCounter);
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        orderCounter = in.readInt();
     }
 
     public void addProduct(Product product, int quantity) {
