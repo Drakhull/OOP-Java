@@ -6,17 +6,16 @@ import com.ecommerce.models.Customer;
 import com.ecommerce.models.Administrator;
 import com.ecommerce.controller.UsersRegistry;
 
-
 import java.util.Scanner;
+
 // this class is far from perfect, but i don't have much time left to improve it, so sorry
 public class CreateUserUI {
     private CreateUserUI() {
     }
 
-    public static void menu()
+    public static void menu(Scanner scanner)
         throws Exception {
 
-        Scanner scanner = new Scanner(System.in);
         String option = "";
 
 
@@ -34,7 +33,6 @@ public class CreateUserUI {
             switch (option){
                 case "0": {
                     System.out.println("\n\nReturning...");
-                    // scanner.close();
                     break;
                 }
 

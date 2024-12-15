@@ -53,8 +53,8 @@ public class CreateProductUI {
     private CreateProductUI() {
     }
 
-    public static void create() throws Exception {
-        Scanner scanner = new Scanner(System.in);
+    public static void create(Scanner scanner)
+        throws Exception {
 
         String name = "";
         int quantityInStock = 0;

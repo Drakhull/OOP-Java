@@ -12,15 +12,15 @@ public class AuthUI {
     private AuthUI(){
     }
 
-    public static User menu()
+    public static User menu(Scanner scanner)
         throws Exception {
         {
             ClearTerminal.clear();
             System.out.println("Welcome to the authentication menu!\nType 'exit' to leave.");
 
-            String email = inputEmail();
+            String email = inputEmail(scanner);
 
-            if (email.equalsIgnoreCase("exit") || inputPassword(email).equalsIgnoreCase("exit"))
+            if (email.equalsIgnoreCase("exit") || inputPassword(email, scanner).equalsIgnoreCase("exit"))
                 return null;
 
             ClearTerminal.clear();
@@ -34,10 +34,9 @@ public class AuthUI {
         }
     }
 
-    private static String inputEmail()
+    private static String inputEmail(Scanner scanner)
         throws Exception {
 
-        Scanner scanner = new Scanner(System.in);
         String email = null;
 
         while (true){
@@ -52,10 +51,9 @@ public class AuthUI {
         }
     }
 
-    private static String inputPassword(String email)
+    private static String inputPassword(String email, Scanner scanner)
         throws Exception {
 
-        Scanner scanner = new Scanner(System.in);
         String password = null;
 
         while (true){

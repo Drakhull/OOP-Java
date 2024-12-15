@@ -4,16 +4,18 @@ public class ShoppingCart {
     private Customer customer;
     private Order order;
 
-    public ShoppingCart(Order order) {
+    public ShoppingCart(Customer customer, Order order) {
+        this.customer = customer;
         this.order = order;
     }
 
     public void display(){
-            int purchaseCounter = 0;
-        // for(Product product : products){
-        //     System.out.println("Purchase Number " + purchaseCounter++);
-        //     product.display();
-        // }
+        this.customer.simpleDisplay();
+        System.out.println("\n==============================================");
+        order.display();
     }
 
+    public Order getOrder(){
+        return this.order;
+    }
 }

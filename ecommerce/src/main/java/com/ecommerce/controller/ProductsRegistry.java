@@ -23,6 +23,10 @@ public class ProductsRegistry {
     }
 
     public static void displayProducts() {
-        products.forEach((id, product) -> product.display());
+        System.out.println("\n=============================================\n");
+        products.forEach((id, product) -> {
+            product.display();
+            System.out.println("\n=============================================\n");
+        });
     }
 }

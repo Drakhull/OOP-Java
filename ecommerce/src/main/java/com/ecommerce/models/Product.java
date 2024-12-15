@@ -23,12 +23,36 @@ public class Product {
     }
 
     public void display() {
-        System.out.println("\nID: " + id + "\nName: " + name + "\nPrice: " + price +
+        System.out.println("\nProduct ID: " + id +
+                           "\nName: " + name +
+                           "\nPrice: " + price +
                            "\nQuantity in stock: " + quantityInStock +
-                           "\nDescription: " + description + "\nCategory: " + category);
+                           "\nDescription: " + description +
+                           "\nCategory: " + category);
+    }
+
+        public void displayForOrder() {
+        System.out.println("\nProduct ID: " + id +
+                           "\nName: " + name +
+                           "\nDescription: " + description +
+                           "\nCategory: " + category +
+                           "\nUnit Price: " + price);
+    }
+
+    public void incrementStockQuantity(int quantity) {
+        this.quantityInStock += quantity;
+    }
+
+    public void decrementStockQuantity(int quantity) {
+        if (this.quantityInStock > 0)
+            this.quantityInStock -= quantity;
     }
 
     public int getId() {
         return this.id;
+    }
+
+    public BigDecimal getPrice() {
+        return this.price;
     }
 }

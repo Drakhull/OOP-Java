@@ -10,12 +10,13 @@ public class LoginUI {
     private LoginUI(){
     }
 
-    public static void menuAdmin(User user)
+    public static void menuAdmin(User user, Scanner scanner)
         throws Exception {
 
         boolean exit = false;
         while (!exit) {
             ClearTerminal.clear();
+
             if (user instanceof Administrator) {
                 Administrator adm = (Administrator) user;
 
@@ -26,24 +27,22 @@ public class LoginUI {
                                    "\n[2] Create New Product" +
                                    "\n[3] Reports" +
                                    "\n\nChoose an option: ");
-                Scanner scanner = new Scanner(System.in);
                 String option = scanner.nextLine();
 
                 switch (option) {
                     case "0": {
                         System.out.println("\n\nReturning...");
-                        // scanner.close();
                         exit = true;
                         break;
                     }
 
                     case "1": {
-                        adm.createNewUser();
+                        adm.createNewUser(scanner);
                         break;
                     }
 
                     case "2": {
-                        adm.createNewProduct();
+                        adm.createNewProduct(scanner);
                         break;
                     }
 
@@ -57,36 +56,31 @@ public class LoginUI {
         }
     }
 
-    public static void menuCustomer(User user)
+    public static void menuCustomer(User user, Scanner scanner)
         throws Exception {
 
         boolean exit = false;
 
         while (!exit) {
-        ClearTerminal.clear();
+            ClearTerminal.clear();
+
             if (user instanceof Customer) {
                 Customer customer = (Customer) user;
                 System.out.println("Welcome Customer!");
                 System.out.println("\n[0] Exit" +
                                    "\n[1] Start new order" +
                                    "\n\nChoose an option: ");
-                Scanner scanner = new Scanner(System.in);
                 String option = scanner.nextLine();
 
                 switch (option) {
                     case "0": {
                         System.out.println("\n\nReturning...");
-                        // scanner.close();
                         exit = true;
                         break;
                     }
 
                     case "1": {
-                        // return;
-                        break;
-                    }
-
-                    case "2": {
+                        ShoppingUI.menu(scanner);
                         break;
                     }
 

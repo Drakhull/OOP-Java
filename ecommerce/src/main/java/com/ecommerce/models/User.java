@@ -1,7 +1,9 @@
 package com.ecommerce.models;
 
 import com.ecommerce.authentication.PasswordHashing;
+
 import java.util.HashMap;
+import java.util.Scanner;
 
 public abstract class User {
     private static int idCounter = 0;
@@ -27,7 +29,12 @@ public abstract class User {
                          "\nPassword: " + password);
     }
 
-    public abstract void showMenu(User user) throws Exception;
+    public void simpleDisplay(){
+        System.out.print("\nID: " + id +
+                         "\nName: " + name);
+    }
+
+    public abstract void showMenu(User user, Scanner scanner) throws Exception;
 
     public boolean isPasswordValid(String passwordToValidate)
         throws Exception {

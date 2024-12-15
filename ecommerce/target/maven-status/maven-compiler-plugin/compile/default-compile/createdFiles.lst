@@ -16,3 +16,4 @@ com/ecommerce/models/Customer.class
 com/ecommerce/models/Order$1.class
 com/ecommerce/ui/ClearTerminal.class
 com/ecommerce/models/Product.class
+com/ecommerce/ui/ShoppingUI.class
