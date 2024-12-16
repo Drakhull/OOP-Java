@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.io.*;
 
 public class Order implements Serializable {
+    private static final long serialVersionUID = 13L;
     private static int orderCounter = 0;
 
     private int orderNumber;
@@ -168,6 +169,5 @@ public class Order implements Serializable {
             total = total.add(orderProduct.calculateValue());
         }
         this.totalValue = total;
-        // return total;
     }
 }

@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.io.*;
 
 public class Product implements Serializable {
+    private static final long serialVersionUID = 12L;
     private static int idCounter = 0;
 
     private int id;

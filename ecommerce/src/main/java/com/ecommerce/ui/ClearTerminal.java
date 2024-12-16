@@ -15,8 +15,8 @@ public class ClearTerminal {
                 e.printStackTrace();
             }
         } else {
-            System.out.print("\033[H\033[2J");  // Limpa a tela
-            System.out.flush();  // Garante que a saída seja aplicada
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
         }
     }
 }
