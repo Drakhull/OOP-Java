@@ -34,6 +34,10 @@ public class Order implements Serializable {
         orderCounter = in.readInt();
     }
 
+    public boolean isEmpty() {
+        return orderProducts.isEmpty();
+    }
+
     public void addProduct(Product product, int quantity) {
         OrderProduct orderProduct = orderProducts.get(product);
         if (productAlreadyExists(product)) {
@@ -61,6 +65,12 @@ public class Order implements Serializable {
         return orderProduct != null;
     }
 
+    public boolean productAlreadyExistsInOrderProducts(Product product) {
+        OrderProduct orderProduct = orderProducts.get(product);
+        Product foundProduct = orderProduct.getProduct();
+        return foundProduct != null;
+    }
+
     public void decrementStock () {
         orderProducts.forEach((id, orderProduct) -> {
             orderProduct.decrementStock(orderProduct.getQuantity());
@@ -76,10 +86,12 @@ public class Order implements Serializable {
     public void decrementQuantity(Product product, int quantity) {
         OrderProduct orderProduct = orderProducts.get(product);
         orderProduct.decrementQuantity(quantity);
+        calculateTotalValue();
     }
     public void incrementQuantity(Product product, int quantity) {
         OrderProduct orderProduct = orderProducts.get(product);
         orderProduct.incrementQuantity(quantity);
+        calculateTotalValue();
     }
 
     public void display() {

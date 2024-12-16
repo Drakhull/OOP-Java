@@ -38,7 +38,8 @@ public class ShoppingUI {
                 }
 
                 case "1": {
-                    shoppingCart = addProductMenu(customer, scanner);
+                    shoppingCart = addProductMenu(shoppingCart, customer, scanner);
+                    Reports.compareAndChangePurchase(shoppingCart);
                     break;
                 }
 
@@ -68,6 +69,7 @@ public class ShoppingUI {
                         System.out.println("\nYour shopping cart is empty." +
                                            "\nPress enter to go back.");
                         scanner.nextLine();
+                        break;
                     }
                     ClearTerminal.clear();
                     System.out.println("\nOperation was successful!" +
@@ -82,12 +84,15 @@ public class ShoppingUI {
         }
     }
 
-    private static ShoppingCart addProductMenu(Customer customer, Scanner scanner) {
+//     this could be way better if divided into different methods.
+    private static ShoppingCart addProductMenu(ShoppingCart shoppingCartMenu, Customer customer, Scanner scanner) {
 
         int productId = -1;
         int quantity = 0;
         String input = "";
         Order order = new Order();
+        ShoppingCart shoppingCart = shoppingCartMenu;
+        int previousQuantity = 0;
 
         while (true) {
             ClearTerminal.clear();
@@ -105,8 +110,13 @@ public class ShoppingUI {
 
             if (input.equalsIgnoreCase("exit")) {
                 break;
-            } else if (input.equalsIgnoreCase("save")) {
-                return saveCart(customer, order);
+            } else if (input.equalsIgnoreCase("save") && !order.isEmpty()) {
+                if (shoppingCart == null) {
+                    shoppingCart = saveCart(customer, order);  // Salva o carrinho se ele ainda for null
+                }
+                return shoppingCart;  // Retorna o carrinho com o pedido
+            } else if(input.equalsIgnoreCase("save") && order.isEmpty()) {
+                break;  // Interrompe o loop se o pedido estiver vazio
             }
 
             try {
@@ -122,27 +132,49 @@ public class ShoppingUI {
                 System.out.print("\nQuantity: ");
                 input = scanner.nextLine().trim();
 
+                if (input.equalsIgnoreCase("exit")) {
+                    break;
+                } else if (input.equalsIgnoreCase("save") && !order.isEmpty()) {
+                    if (shoppingCart == null) {
+                        shoppingCart = saveCart(customer, order);  // Salva o carrinho se for null
+                    }
+                    return shoppingCart;
+                } else if(input.equalsIgnoreCase("save") && order.isEmpty()) {
+                    break;
+                }
+
                 quantity = Integer.parseInt(input);
-                if (quantity < 0) {
-                    System.out.println("\nQuantity can't be negative. Press enter to try again.");
+                if (quantity <= 0) {
+                    System.out.println("\nQuantity can't be negative or equals zero. Press enter to try again.");
                     scanner.nextLine();
                     continue;
                 }
 
                 order.addProduct(product, quantity);
 
-                if (!product.isStockEnough(order.getQuantity(product))) {
+                if (shoppingCart != null) {
+                    previousQuantity = shoppingCart.getQuantityByProduct(product);
+                }
+
+                if (!product.isStockEnough((order.getQuantity(product) + previousQuantity))) {
+
                     System.out.println("\nNot enough products in Stock. Press enter to try again.");
                     scanner.nextLine();
                     order.decrementQuantity(product, quantity);
                     continue;
                 }
+
+                else if(shoppingCart == null) {
+                    shoppingCart = saveCart(customer, order);  // Salva o carrinho
+                } else {
+                    shoppingCart.updateOrder(order, product, quantity);  // Atualiza o carrinho
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid integer.");
             }
         }
-        return null;
-    }
+        return shoppingCart;  // Retorna o carrinho final após o loop
+}
 
     private static ShoppingCart saveCart(Customer customer, Order order) {
         if (order != null) {

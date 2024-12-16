@@ -31,7 +31,6 @@ public class CreateUserUI {
 
             switch (option){
                 case "0": {
-                    System.out.println("\n\nReturning...");
                     break;
                 }
 
@@ -95,7 +94,7 @@ public class CreateUserUI {
                 if (password.equalsIgnoreCase("exit"))
                     return;
                 if (!Validation.isPasswordStrong(password))
-                     System.out.println("\nPassword has to be:" +
+                     System.out.println("Password has to be:" +
                                         "\n- Not empty" +
                                         "\n- 8 characters long" +
                                         "\n- At least 1 lowercase letter" +
@@ -110,24 +109,27 @@ public class CreateUserUI {
             if (passwordConfirmation.equalsIgnoreCase("exit"))
                 return;
             if (!passwordConfirmation.equals(password)) {
-                System.out.println("\nPassword Mismatch." +
+                System.out.println("Password Mismatch." +
                                     "\n\nTry again:");
             }
         }
 
         if (userType.equals("Customer")) {
             String address = "";
-            System.out.println("\nAddress: ");
+            System.out.println("Address: ");
             while (true) {
                 address = scanner.nextLine();
                 if (!address.isEmpty())
                     break;
-                System.out.println("\nAddress can't be empty!" +
+                System.out.println("Address can't be empty!" +
                                    "\n\nTry again: ");
             }
             UsersRegistry.put(new Customer(name, email, password, address));
         } else if (userType.equals("Administrator")){
+                    ClearTerminal.clear();
                     UsersRegistry.put(new Administrator(name, email, password));
+                    System.out.println("User Created!\n\nPress enter to continue...");
+                    scanner.nextLine();
                 }
     }
 }

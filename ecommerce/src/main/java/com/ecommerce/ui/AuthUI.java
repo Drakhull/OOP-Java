@@ -22,7 +22,7 @@ public class AuthUI {
                 return null;
 
             ClearTerminal.clear();
-            System.out.println("Login successful\n");
+            System.out.println("Login successful!\n");
 
 //                 should i return a "LoginResult" object containing the User instead?
 

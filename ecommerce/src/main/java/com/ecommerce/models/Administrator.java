@@ -9,6 +9,12 @@ import java.util.Scanner;
 import java.io.*;
 
 public class Administrator extends User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    public Administrator(){
+    }
+
     public Administrator (String name, String email, String password)
         throws Exception {
         super(name, email, password);

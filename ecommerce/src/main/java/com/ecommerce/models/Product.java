@@ -2,7 +2,9 @@ package com.ecommerce.models;
 
 import java.math.BigDecimal;
 
-public class Product {
+import java.io.*;
+
+public class Product implements Serializable {
     private static int idCounter = 0;
 
     private int id;
@@ -11,6 +13,9 @@ public class Product {
     private String description;
     private String category;
     private BigDecimal price;
+
+    public Product(){
+    }
 
     public Product(String name, int quantityInStock, String description,
                    String category, BigDecimal price) {

@@ -11,6 +11,7 @@ com/ecommerce/ui/CreateUserUI.class
 com/ecommerce/models/Administrator.class
 com/ecommerce/controller/UsersRegistry.class
 com/ecommerce/ui/CreateProductUI.class
+com/ecommerce/utils/SerializationUtils.class
 com/ecommerce/utils/Reports.class
 com/ecommerce/controller/ProductsRegistry.class
 com/ecommerce/models/Customer.class

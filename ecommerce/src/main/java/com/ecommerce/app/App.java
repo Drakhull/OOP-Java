@@ -12,21 +12,45 @@ import java.math.BigDecimal;
 
 import com.ecommerce.ui.AuthUI;
 
+import com.ecommerce.utils.SerializationUtils;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        Administrator admin = new Administrator("admin", "admin", "admin");
-        UsersRegistry.put(admin);
-        Customer cust = new Customer("cust", "cust", "cust", "cust");
-        UsersRegistry.put(cust);
-
-        ProductsRegistry.put(new Product("Product 1", 10, "String description", "String category", new BigDecimal(20)));
-        ProductsRegistry.put(new Product("Product 2", 2, "String description", "String category", new BigDecimal(20)));
-        ProductsRegistry.put(new Product("Product 3", 0, "String description", "String category", new BigDecimal(20)));
-        ProductsRegistry.put(new Product("Product 4", 4, "String description", "String category", new BigDecimal(20)));
-        ProductsRegistry.put(new Product("Product 5", 5, "String description", "String category", new BigDecimal(20)));
-        ProductsRegistry.put(new Product("Product 6", 100, "String description", "String category", new BigDecimal(20)));
-
         Scanner scanner = new Scanner(System.in);
+
+        UsersRegistry.displayUsers();
+        System.out.println("===============================================");
+        System.out.println("===============================================");
+        System.out.println("===============================================");
+        System.out.println("===============================================");
+        System.out.println("===============================================");
+        ProductsRegistry.displayProducts();
+        System.out.println("Before deserialization");
+        scanner.nextLine();
+
+        SerializationUtils.deserializeData();
+
+        UsersRegistry.displayUsers();
+        System.out.println("===============================================");
+        System.out.println("===============================================");
+        System.out.println("===============================================");
+        System.out.println("===============================================");
+        System.out.println("===============================================");
+        ProductsRegistry.displayProducts();
+        System.out.println("After deserialization");
+        scanner.nextLine();
+
+        if (UsersRegistry.getUsers().isEmpty()) {
+            Administrator admin = new Administrator("admin", "admin", "admin");
+            UsersRegistry.put(admin);
+            Customer cust = new Customer("cust", "cust", "cust", "cust");
+            UsersRegistry.put(cust);
+        }
+
+        if (ProductsRegistry.getProducts().isEmpty()) {
+            ProductsRegistry.put(new Product("Product 1", 10, "String description", "String category", new BigDecimal(20)));
+        }
+
 
         try {
             while (true) {
@@ -40,6 +64,8 @@ public class App {
                 user.showMenu(user, scanner);
             }
         } finally {
+            // Serializa os dados ao finalizar
+            SerializationUtils.serializeData();
             scanner.close();
         }
     }

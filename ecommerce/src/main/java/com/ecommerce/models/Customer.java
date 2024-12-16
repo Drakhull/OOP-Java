@@ -6,9 +6,16 @@ import com.ecommerce.ui.LoginUI;
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class Customer extends User {
+import java.io.*;
+
+public class Customer extends User implements Serializable {
+    private static final long serialVersionUID = 2L;
+
     private String address;
     private HashMap<Order, ShoppingCart> purchaseHistory;
+
+    public Customer(){
+    }
 
     public Customer (String name, String email, String password, String address)
         throws Exception {

@@ -4,13 +4,19 @@ import com.ecommerce.utils.PasswordHashing;
 
 import java.util.Scanner;
 
-public abstract class User {
+import java.io.*;
+
+public abstract class User implements Serializable {
+    private static final long serialVersionUID = 0L;
     private static int idCounter = 0;
 
     private int id;
     private String name;
     private String email;
     private String password;
+
+    public User(){
+    }
 
     public User (String name, String email, String password)
         throws Exception {

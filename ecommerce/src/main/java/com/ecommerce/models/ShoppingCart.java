@@ -11,6 +11,20 @@ public class ShoppingCart {
         this.order = order;
     }
 
+    public void addProductToCart(Product product, int quantity){
+        order.addProduct(product, quantity);
+    }
+
+    public int getQuantityByProduct(Product product) {
+        return order.getQuantity(product);
+    }
+
+    public void updateOrder(Order order, Product product, int quantity) {
+        if (order.productAlreadyExistsInOrderProducts(product))
+            this.order.incrementQuantity(product, quantity);
+        else this.order = order;
+    }
+
     public void display() {
         this.customer.simpleDisplay();
         System.out.println("\n==============================================");
@@ -23,5 +37,9 @@ public class ShoppingCart {
 
     public BigDecimal getTotalValue() {
         return order.getTotalValue();
+    }
+
+    public boolean hasCustomer() {
+        return customer != null;
     }
 }
