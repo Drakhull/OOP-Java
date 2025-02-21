@@ -1,0 +1,6 @@
+/home/Iuri/OOP/OOP-Java/elibrary/microkernel/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IAuthenticationController.java
+/home/Iuri/OOP/OOP-Java/elibrary/microkernel/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/ICore.java
+/home/Iuri/OOP/OOP-Java/elibrary/microkernel/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IIOController.java
+/home/Iuri/OOP/OOP-Java/elibrary/microkernel/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IPlugin.java
+/home/Iuri/OOP/OOP-Java/elibrary/microkernel/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IPluginController.java
+/home/Iuri/OOP/OOP-Java/elibrary/microkernel/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IUIController.java
