@@ -23,7 +23,7 @@ public class MyPlugin implements IPlugin
             }
         });
 
-        uiController.createTab("new tab", new Rectangle(200,200, Color.LIGHTSTEELBLUE));
+        // uiController.createTab("new tab", new Rectangle(200,200, Color.LIGHTSTEELBLUE));
 
         return true;
     }
