@@ -23,13 +23,8 @@ public class User implements Serializable {
         this.borrowedBooks = new ArrayList<>();
     }
 
-    public void borrowBook(Book book, LocalDate loanDate) {
-        if (borrowedBooks.size() < 5) {
-            // Loan loan = new Loan(this, book, loanDate);
-            // borrowedBooks.add(loan);
-        } else {
-            throw new IllegalStateException("This user has reached the borrowed books limit.");
-        }
+    public int borrowedBooksQuantity() {
+        return borrowedBooks.size();
     }
 
     // public void returnBook(Book book) {
