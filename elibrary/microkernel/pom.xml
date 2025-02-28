@@ -13,6 +13,7 @@
         <module>interfaces</module>
         <module>app</module>
         <module>plugins/myplugin</module>
+<!--         <module></module> -->
     </modules>
 
     <properties>
