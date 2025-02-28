@@ -18,7 +18,23 @@ public class Book implements Serializable{
     }
 
     public String getIsbn () {
-        return isbn;
+        return this.isbn;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public String getPublishYear() {
+        return this.publishYear;
+    }
+
+    public String getGenre() {
+        return this.genre;
     }
 
 }

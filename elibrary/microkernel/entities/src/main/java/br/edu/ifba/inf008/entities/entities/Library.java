@@ -61,7 +61,7 @@ public class Library implements Serializable {
 
             for(Loan loan : loans) {
                 if(!loan.isReturned() &&
-                   loan.isUserAndBookEqual(user, book)){
+                   loan.isUserAndBookEqual(user, book)) {
 
                    loan.confirmReturn();
                 }

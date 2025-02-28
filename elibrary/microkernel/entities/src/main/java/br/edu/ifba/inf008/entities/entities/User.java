@@ -39,7 +39,11 @@ public class User implements Serializable {
         return null;
     }
 
-    // public void returnBook(Book book) {
-    //     borrowedBooks.removeIf(loan -> loan.getBook().equals(book));
-    // }
+    public String getName() {
+        return this.name;
+    }
+
+    public int getId() {
+        return this.id;
+    }
 }
