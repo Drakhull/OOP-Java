@@ -16,4 +16,9 @@ public class Book implements Serializable{
         this.publishYear = publishYear;
         this.genre = genre;
     }
+
+    public String getIsbn () {
+        return isbn;
+    }
+
 }

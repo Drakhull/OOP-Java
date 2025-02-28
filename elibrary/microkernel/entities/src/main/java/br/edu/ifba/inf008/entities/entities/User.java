@@ -10,7 +10,7 @@ public class User implements Serializable {
 
     private int id;
     private String name;
-    private ArrayList<Loan> borrowedBooks;
+    private ArrayList<Book> borrowedBooks;
 
     public User (String name) {
         this.id = idCounter++;
@@ -18,8 +18,25 @@ public class User implements Serializable {
         this.borrowedBooks = new ArrayList<>();
     }
 
-    public int getBorrowedBooksQuantity() {
+    public void borrowBook(Book book) {
+        borrowBooks.add(book);
+    }
+
+    public int borrowedBooksQuantity() {
         return borrowedBooks.size();
+    }
+
+    public Book returnBook(String isbn) {
+        for (Book book: borrowedBooks) {
+            if(book.getIsbn.equals(isbn)) {
+                Book foundBook = book;
+                borrowBooks.remove(book);
+
+                return foundBook;
+            }
+        }
+
+        return null;
     }
 
     // public void returnBook(Book book) {
