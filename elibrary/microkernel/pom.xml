@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>entities</module>
         <module>interfaces</module>
         <module>app</module>
         <module>plugins/myplugin</module>

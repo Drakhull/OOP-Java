@@ -19,7 +19,7 @@ public class User implements Serializable {
     }
 
     public void borrowBook(Book book) {
-        borrowBooks.add(book);
+        borrowedBooks.add(book);
     }
 
     public int borrowedBooksQuantity() {
@@ -27,10 +27,10 @@ public class User implements Serializable {
     }
 
     public Book returnBook(String isbn) {
-        for (Book book: borrowedBooks) {
-            if(book.getIsbn.equals(isbn)) {
+        for (Book book : borrowedBooks) {
+            if(book.getIsbn().equals(isbn)) {
                 Book foundBook = book;
-                borrowBooks.remove(book);
+                borrowedBooks.remove(book);
 
                 return foundBook;
             }
