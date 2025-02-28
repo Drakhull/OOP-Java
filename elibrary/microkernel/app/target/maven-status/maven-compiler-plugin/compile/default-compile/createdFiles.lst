@@ -1,9 +1,6 @@
 br/edu/ifba/inf008/App.class
 br/edu/ifba/inf008/shell/AuthenticationController.class
-br/edu/ifba/inf008/Book.class
-br/edu/ifba/inf008/Loan.class
 br/edu/ifba/inf008/shell/UIController.class
-br/edu/ifba/inf008/User.class
 br/edu/ifba/inf008/shell/PluginController$1.class
 br/edu/ifba/inf008/shell/Core.class
 br/edu/ifba/inf008/shell/PluginController.class

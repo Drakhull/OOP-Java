@@ -3,7 +3,6 @@ package br.edu.ifba.inf008;
 import java.io.Serializable;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.time.LocalDate;
 
 public class User implements Serializable {
@@ -11,11 +10,7 @@ public class User implements Serializable {
 
     private int id;
     private String name;
-    private List<Loan> borrowedBooks;
-
-
-    public User(){
-    }
+    private ArrayList<Loan> borrowedBooks;
 
     public User (String name) {
         this.id = idCounter++;
@@ -23,7 +18,7 @@ public class User implements Serializable {
         this.borrowedBooks = new ArrayList<>();
     }
 
-    public int borrowedBooksQuantity() {
+    public int getBorrowedBooksQuantity() {
         return borrowedBooks.size();
     }
 

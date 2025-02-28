@@ -1,8 +1,4 @@
 /home/iuri/OOP/OOP-Java/elibrary/microkernel/app/src/main/java/br/edu/ifba/inf008/App.java
-/home/iuri/OOP/OOP-Java/elibrary/microkernel/app/src/main/java/br/edu/ifba/inf008/entities/Book.java
-/home/iuri/OOP/OOP-Java/elibrary/microkernel/app/src/main/java/br/edu/ifba/inf008/entities/Library.java
-/home/iuri/OOP/OOP-Java/elibrary/microkernel/app/src/main/java/br/edu/ifba/inf008/entities/Loan.java
-/home/iuri/OOP/OOP-Java/elibrary/microkernel/app/src/main/java/br/edu/ifba/inf008/entities/User.java
 /home/iuri/OOP/OOP-Java/elibrary/microkernel/app/src/main/java/br/edu/ifba/inf008/shell/AuthenticationController.java
 /home/iuri/OOP/OOP-Java/elibrary/microkernel/app/src/main/java/br/edu/ifba/inf008/shell/Core.java
 /home/iuri/OOP/OOP-Java/elibrary/microkernel/app/src/main/java/br/edu/ifba/inf008/shell/IOController.java

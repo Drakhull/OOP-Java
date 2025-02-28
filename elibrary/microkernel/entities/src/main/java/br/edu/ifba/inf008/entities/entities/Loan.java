@@ -1,8 +1,10 @@
 package br.edu.ifba.inf008;
 
+import java.io.Serializable;
+
 import java.time.LocalDate;
 
-public class Loan {
+public class Loan implements Serializable {
     private User user;
     private Book book;
     private LocalDate loanDate;
