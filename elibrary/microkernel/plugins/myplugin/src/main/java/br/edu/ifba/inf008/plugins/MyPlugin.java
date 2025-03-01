@@ -8,6 +8,7 @@ import javafx.scene.control.MenuItem;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.image.Image;/////
 import javafx.scene.paint.Color;
 
 public class MyPlugin implements IPlugin
@@ -24,6 +25,8 @@ public class MyPlugin implements IPlugin
         });
 
         // uiController.createTab("new tab", new Rectangle(200,200, Color.LIGHTSTEELBLUE));
+
+        // uiController.createTab("new tab", new Image("https://cdn.britannica.com/43/125343-004-E0E57F29/Satan-illustration-Gustave-Dore-John-Milton-Paradise.jpg"));
 
         return true;
     }
