@@ -8,21 +8,23 @@ import javafx.scene.control.MenuItem;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.image.Image;/////
 import javafx.scene.paint.Color;
+import javafx.scene.layout.HBox;
 
 public class MyPlugin implements IPlugin
 {
     public boolean init() {
         IUIController uiController = ICore.getInstance().getUIController();
 
-        MenuItem menuItem = uiController.createMenuItem("Menu 1", "My Menu Item");
+        MenuItem menuItem = uiController.createMenuItem("Menu", "My Menu Item");
         menuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
                 System.out.println("I've been clicked!");
             }
         });
+
+        // HBox hBox = uiController.createSearchBar();
 
         // uiController.createTab("new tab", new Rectangle(200,200, Color.LIGHTSTEELBLUE));
 
