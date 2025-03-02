@@ -25,9 +25,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Button;
 
 import br.edu.ifba.inf008.entities.Library;
+import br.edu.ifba.inf008.entities.Book;
 
 import javafx.scene.control.Label;
-
+import java.util.HashMap;
 
 
 import javafx.scene.control.TextField;
@@ -147,7 +148,7 @@ public class UIController extends Application implements IUIController
         bookList.setSpacing(10);
         bookList.setAlignment(Pos.CENTER);
 
-        Library.getInstance();
+        HashMap<String, Book> books = Library.getInstance().getBooks();
 
         // Replace
         for (int i = 0; i < 10; i++) {

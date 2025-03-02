@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 
 public class Library implements Serializable {
-    private static HashMap<String, Book> books = new HashMap<>();
-    private static HashMap<String, Book> lendedBooks = new HashMap<>();
-    private static ArrayList<Loan> loans = new ArrayList();
+    private HashMap<String, Book> books = new HashMap<>();
+    private HashMap<String, Book> lendedBooks = new HashMap<>();
+    private ArrayList<Loan> loans = new ArrayList();
     private static Library instance;
 
     private static final int borrowLimit = 5;
@@ -21,6 +21,15 @@ public class Library implements Serializable {
             instance = new Library();
         }
         return instance;
+    }
+
+    public HashMap<String, Book> getBooks() {
+        return this.books;
+    }
+
+    public void registerNewBook(String isbn, String title, String author, String publishYear, String genre) {
+        Book book = new Book(isbn, title, author, publishYear, genre);
+        addBook(book);
     }
 
     public void addBook(Book book) {

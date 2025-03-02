@@ -18,17 +18,16 @@ public class Book implements Serializable{
         this.author = author;
         this.publishYear = publishYear;
         this.genre = genre;
-
     }
 
-    public Book (String isbn, String title, String author, String publishYear, String genre, String pathToCoverInResources) {
-        this.isbn = isbn;
-        this.title = title;
-        this.author = author;
-        this.publishYear = publishYear;
-        this.genre = genre;
-        // this.cover = new ImageView(new Image(pathToCoverInResources));
-    }
+    // public Book (String isbn, String title, String author, String publishYear, String genre, String pathToCoverInResources) {
+    //     this.isbn = isbn;
+    //     this.title = title;
+    //     this.author = author;
+    //     this.publishYear = publishYear;
+    //     this.genre = genre;
+    //     this.cover = new ImageView(new Image(pathToCoverInResources));
+    // }
 
     public String getIsbn () {
         return this.isbn;
