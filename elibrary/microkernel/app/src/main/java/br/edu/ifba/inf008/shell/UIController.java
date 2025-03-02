@@ -17,6 +17,17 @@ import javafx.scene.control.Tab;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 
+
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.layout.StackPane;
+
+
+
+import javafx.scene.control.Label;
+
+
+
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -48,7 +59,7 @@ public class UIController extends Application implements IUIController
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("E-Library");
 
         menuBar = new MenuBar();
 
@@ -57,8 +68,12 @@ public class UIController extends Application implements IUIController
         tabPane = new TabPane();
         tabPane.setSide(Side.BOTTOM);
 
-        vBox.getChildren().addAll(tabPane);
-        vBox.getChildren().addAll(createSearchBar());
+        Label title = new Label("E-Library");
+        title.setFont(Font.font("Times New Roman", FontWeight.BOLD, 24));
+        StackPane titleContainer = new StackPane(title);
+        titleContainer.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(createSearchBar(), titleContainer, tabPane);
+        // VBox.getChildren().addAll(title);
 
         Scene scene = new Scene(vBox, 960, 600);
 
@@ -119,7 +134,7 @@ public class UIController extends Application implements IUIController
             @Override
             public void handle(MouseEvent event) {
                 // Open profile screen from the user
-                System.out.println("Abrir perfil do usuário");
+                System.out.println("Open users profile");
             }
         });
             searchBar.getChildren().addAll(searchIcon, searchField, profileIcon);
