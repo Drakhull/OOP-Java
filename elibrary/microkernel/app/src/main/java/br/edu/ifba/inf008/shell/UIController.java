@@ -21,8 +21,10 @@ import javafx.scene.Node;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.layout.StackPane;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Button;
 
-
+import br.edu.ifba.inf008.entities.Library;
 
 import javafx.scene.control.Label;
 
@@ -72,8 +74,7 @@ public class UIController extends Application implements IUIController
         title.setFont(Font.font("Times New Roman", FontWeight.BOLD, 24));
         StackPane titleContainer = new StackPane(title);
         titleContainer.setAlignment(Pos.CENTER);
-        vBox.getChildren().addAll(createSearchBar(), titleContainer, tabPane);
-        // VBox.getChildren().addAll(title);
+        vBox.getChildren().addAll(createSearchBar(), titleContainer, tabPane, createBookList(), createGenreSection());
 
         Scene scene = new Scene(vBox, 960, 600);
 
@@ -139,5 +140,73 @@ public class UIController extends Application implements IUIController
         });
             searchBar.getChildren().addAll(searchIcon, searchField, profileIcon);
         return searchBar;
+    }
+
+    private ScrollPane createBookList() {
+        HBox bookList = new HBox();
+        bookList.setSpacing(10);
+        bookList.setAlignment(Pos.CENTER);
+
+        Library.getInstance();
+
+        // Replace
+        for (int i = 0; i < 10; i++) {
+            VBox book = createBook("Book " + (i + 1), "/images/default_book_cover.png");
+            bookList.getChildren().add(book);
+        }
+
+        ScrollPane scrollPane = new ScrollPane(bookList);
+        scrollPane.setFitToWidth(true);
+        return scrollPane;
+    }
+
+    private VBox createBook(String title, String imagePath) {
+        VBox book = new VBox();
+        book.setSpacing(5);
+        book.setAlignment(Pos.CENTER);
+
+        // Books image
+        ImageView bookImage = new ImageView(new Image(getClass().getResourceAsStream("/images/default_book_cover.jpg")));
+        bookImage.setFitHeight(150);
+        bookImage.setFitWidth(100);
+
+        // Books title
+        Label bookTitle = new Label(title);
+        bookTitle.setFont(Font.font("Times New Roman", FontWeight.NORMAL, 14));
+
+        book.getChildren().addAll(bookImage, bookTitle);
+
+        // Click book action
+        book.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                // Open book details screen
+                System.out.println("Open book details: " + title);
+            }
+        });
+
+        return book;
+    }
+
+    private ScrollPane createGenreSection() {
+        HBox genreList = new HBox();
+        genreList.setSpacing(10);
+        genreList.setAlignment(Pos.CENTER);
+
+        // Exemplo de gêneros (substitua por dados reais)
+        String[] genres = {"HORROR", "FICTION", "ACTION", "ROMANCE", "FANTASY"};
+        for (String genre : genres) {
+            Button genreButton = new Button(genre);
+            genreButton.setStyle("-fx-background-radius: 60; -fx-border-radius: 60; -fx-border-color: black;");
+            genreButton.setOnAction(event -> {
+                // Filtrar livros por gênero
+                System.out.println("Filtrar por gênero: " + genre);
+            });
+            genreList.getChildren().add(genreButton);
+        }
+
+        ScrollPane scrollPane = new ScrollPane(genreList);
+        scrollPane.setFitToWidth(true);
+        return scrollPane;
     }
 }
