@@ -147,13 +147,14 @@ public class UIController extends Application implements IUIController
         HBox bookList = new HBox();
         bookList.setSpacing(10);
         bookList.setAlignment(Pos.CENTER);
-
+        Library.getInstance().registerNewBook("123213", "Dracul", "Bram Stoker", "1800", "Horror");
         HashMap<String, Book> books = Library.getInstance().getBooks();
 
-        // Replace
-        for (int i = 0; i < 10; i++) {
-            VBox book = createBook("Book " + (i + 1), "/images/default_book_cover.png");
-            bookList.getChildren().add(book);
+        // Itera sobre as entradas do HashMap (chave-valor)
+        for (HashMap.Entry<String, Book> entry : books.entrySet()) {
+            Book book = entry.getValue(); // Obtém o objeto Book
+            VBox newBook = createBook(book.getTitle(), "/images/default_book_cover.png");
+            bookList.getChildren().add(newBook);
         }
 
         ScrollPane scrollPane = new ScrollPane(bookList);
