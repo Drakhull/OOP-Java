@@ -19,7 +19,7 @@ public class MyPlugin implements IPlugin
     public boolean init() {
         IUIController uiController = ICore.getInstance().getUIController();
 
-        MenuItem menuItem = uiController.createMenuItem("Register Book", "Register New Book");
+        MenuItem menuItem = uiController.createMenuItem("Register", "Register New Book");
         menuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
